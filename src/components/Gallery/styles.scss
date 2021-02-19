@@ -1,4 +1,10 @@
 .mp-gallery {
-    column-count: 3;
     column-gap: 1em;
+    column-count: 1;
+    @include sm {
+        column-count: 2;
+    }
+    @include md {
+        column-count: 3;
+    }
 }
