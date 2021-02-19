@@ -1,35 +1,36 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
 import GalleryImage from '../GalleryImage';
 
-const Gallery = () => (
-  <div className="mp-gallery w">
-    <div className="r">
-      <div className="c">
-        <GalleryImage
-          url="https://images.unsplash.com/photo-1612298423159-dccda132f28d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxyYW5kb218fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit"
-          alt="Alt text"
-        />
-      </div>
-      <div className="c">
-        <GalleryImage
-          url="https://images.unsplash.com/photo-1612298423159-dccda132f28d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxyYW5kb218fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit"
-          alt="Alt text"
-        />
-      </div>
-      <div className="c">
-        <GalleryImage
-          url="https://images.unsplash.com/photo-1612298423159-dccda132f28d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxyYW5kb218fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit"
-          alt="Alt text"
-        />
+const Gallery = () => {
+  // set inital value of unsplashImages to empty array
+  const [unsplashImages, setUnsplashImages] = useState([]);
+
+  async function fetchUnsplashImages() {
+    // Send request to unsplash api with access token
+    const response = await fetch(`https://api.unsplash.com/photos/?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`);
+    // Set response as state
+    setUnsplashImages(await response.json());
+  }
+  useEffect(() => {
+    fetchUnsplashImages();
+  }, []);
+
+  return (
+    <div className="mp-gallery w">
+      <div className="r">
+        <div className="c">
+          {unsplashImages.length ? unsplashImages.map((image) => (
+            <GalleryImage
+              url={image.urls.regular}
+              alt={image.alt_description}
+            />
+          )) : (
+            <p>No Images</p>
+          )}
+        </div>
       </div>
     </div>
-  </div>
-);
-
-GalleryImage.propTypes = {
-  url: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
+  );
 };
 
 export default Gallery;
