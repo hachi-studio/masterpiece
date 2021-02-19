@@ -1,11 +1,14 @@
 import React from 'react';
 import Gallery from './components/Gallery';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="a-c">MASTERPIECE</h1>
-      <Gallery />
+    <div className="mp-app">
+      <Header />
+      <div className="w">
+        <Gallery />
+      </div>
     </div>
   );
 }

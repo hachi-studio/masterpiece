@@ -16,19 +16,15 @@ const Gallery = () => {
   }, []);
 
   return (
-    <div className="mp-gallery w">
-      <div className="r">
-        <div className="c">
-          {unsplashImages.length ? unsplashImages.map((image) => (
-            <GalleryImage
-              url={image.urls.regular}
-              alt={image.alt_description}
-            />
-          )) : (
-            <p>No Images</p>
-          )}
-        </div>
-      </div>
+    <div className="mp-gallery">
+      {unsplashImages.length ? unsplashImages.map((image) => (
+        <GalleryImage
+          url={image.urls.regular}
+          alt={image.alt_description}
+        />
+      )) : (
+        <p>No Images</p>
+      )}
     </div>
   );
 };

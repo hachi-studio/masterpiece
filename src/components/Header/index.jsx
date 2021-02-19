@@ -3,7 +3,7 @@ import React from 'react';
 const Header = () => (
   <nav className="mp-header a-c">
     <h1>
-      <a href="/">MASTERPIECE</a>
+      MASTERPIECE
     </h1>
   </nav>
 );
