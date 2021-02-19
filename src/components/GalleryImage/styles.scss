@@ -1,7 +1,8 @@
 .mp-gallery-image {
-    margin: 0 0 1em 0;
+    margin:0;
     display: block;
     img {
+        margin-bottom: 1em;
         max-width: 100%;
     }
 }
