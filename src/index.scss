@@ -1,0 +1,10 @@
+// Media query mixins
+@import "./util/mq.scss";
+@import "./util/loader.scss";
+
+// Component styles
+// All app related classes use a mp- prefix
+@import "./components/Header/styles.scss";
+@import "./components/Gallery/styles.scss";
+@import "./components/GalleryImage/styles.scss";
+@import "./components/LightBox/styles.scss";

@@ -1,0 +1,42 @@
+.mp-gallery-image {
+    margin: 0;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    transition: opacity 0.5s ease;
+    .mp-gallery-image-img {
+        margin-bottom: 1em;
+        max-width: 100%;
+        border-radius: var(--border-radius-md);
+    }
+    .mp-gallery-image-info {
+        transition: opacity 0.2s ease;
+        opacity: 0;
+        padding: 0.5em 0.5em 4em 0.5em;
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: var(--border-radius-md);
+        p {
+            color: var(--darkmode-base-font-color);
+            margin: 0.75em;
+            font-size: 12px;
+        }
+        img {
+            border-radius: 50%;
+            max-width: 32px;
+            max-height: 32px;
+        }
+    }
+    &:hover {
+        cursor: pointer;
+        .mp-gallery-image-img {
+            filter: brightness(75%);
+        }
+        .mp-gallery-image-info {
+            opacity: 1;
+        }
+    }
+}
