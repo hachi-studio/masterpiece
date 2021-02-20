@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // Library contains lightweight base styles & reset
-import 'grailcss/css/grail.min.css';
+import 'grailcss/css/grail.css';
 
 import './index.scss';
 import App from './App';
