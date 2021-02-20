@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Modal = ({
+const lightbox = ({
   isLast,
   isFirst,
   index,
   updateActivePhotoIndex,
   image,
 }) => (
-  <div className="mp-gallery-modal">
+  <div className="mp-gallery-lightbox">
     {!isFirst && (
       <i
         className="mp-chevron-left"
@@ -17,12 +17,12 @@ const Modal = ({
         onClick={() => updateActivePhotoIndex(index - 1)}
       />
     )}
-    <div className="mp-gallery-modal-content">
+    <div className="mp-gallery-lightbox-content">
       <div className="mp-gallery-header">
         <img src={image.user.profile_image.medium} alt={image.user.name} />
         <p>{image.user.name}</p>
       </div>
-      <img className="mp-gallery-modal-image" src={image.urls.regular} alt={image.alt_description} />
+      <img className="mp-gallery-lightbox-image" src={image.urls.regular} alt={image.alt_description} />
     </div>
     {!isLast && (
     <i
@@ -41,7 +41,7 @@ const Modal = ({
   </div>
 );
 
-Modal.propTypes = {
+lightbox.propTypes = {
   isLast: PropTypes.bool.isRequired,
   isFirst: PropTypes.bool.isRequired,
   index: PropTypes.number.isRequired,
@@ -49,4 +49,4 @@ Modal.propTypes = {
   updateActivePhotoIndex: PropTypes.func.isRequired,
 };
 
-export default Modal;
+export default lightbox;

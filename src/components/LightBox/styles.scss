@@ -1,4 +1,4 @@
-.mp-gallery-modal {
+.mp-gallery-lightbox {
     position: fixed;
     z-index: 10;
     background-color: rgba(0, 0, 0, 0.75);
@@ -9,11 +9,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    .mp-gallery-modal-content {
+    .mp-gallery-lightbox-content {
         margin: 0 auto;
         height: 80vh;
         max-width: 90vw;
-        .mp-gallery-modal-image {
+        .mp-gallery-lightbox-image {
             height: 80vh;
             max-width: 90vw;
             object-fit: cover;
@@ -39,7 +39,7 @@
 
 .mp-chevron-left {
     color: var(--low-contrast-color);
-    margin-left: 1em;
+    margin-left: 0.5em;
     box-sizing: border-box;
     position: relative;
     display: block;
@@ -47,7 +47,12 @@
     width: 22px;
     height: 22px;
     border: 2px solid transparent;
-    border-radius: 100px
+    border-radius: 100px;
+    @include md {
+        margin-left:2em;
+        width: 32px;
+        height: 32px;
+    }
    }
    
 .mp-chevron-left::after {
@@ -62,11 +67,15 @@
     transform: rotate(45deg);
     left: 6px;
     top: 4px;
+    @include md {
+        width: 20px;
+        height: 20px;
+    }
 } 
 
 .mp-chevron-right {
     color: var(--low-contrast-color);
-    margin-right: 1em;
+    margin-right: 0.5em;
     box-sizing: border-box;
     position: relative;
     display: block;
@@ -75,6 +84,11 @@
     height: 22px;
     border: 2px solid transparent;
     border-radius: 100px;
+    @include md {
+        margin-right:2em;
+        width: 32px;
+        height: 32px;
+    }
    }
    
 .mp-chevron-right::after {
@@ -89,20 +103,30 @@
     transform: rotate(-45deg);
     right: 6px;
     top: 4px;
+    @include md {
+        width: 20px;
+        height: 20px;
+    }
 } 
 
 .mp-close {
     color: var(--low-contrast-color);
     position: fixed;
-    top:1em;
-    right:1em;
+    top:0.5em;
+    right:0.5em;
     box-sizing: border-box;
     display: block;
     transform: scale(var(--ggs,1));
     width: 22px;
     height: 22px;
     border: 2px solid transparent;
-    border-radius: 40px
+    border-radius: 40px;
+    @include md {
+        top:2em;
+        right:2em;
+        width: 32px;
+        height: 32px;
+    }
    }
    
    .mp-close::after,
@@ -117,7 +141,10 @@
     transform: rotate(45deg);
     border-radius: 5px;
     top: 8px;
-    left: 1px
+    left: 1px;
+    @include md {
+        width: 26px;
+    }
    }
    
    .mp-close::after {
