@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import LightBoxHeader from './light-box-header';
 
 const lightbox = ({
   isLast,
@@ -9,28 +10,26 @@ const lightbox = ({
   image,
 }) => (
   <div className="mp-gallery-lightbox">
+    <div className="mp-gallery-lightbox-close-area" role="button" aria-hidden="true" onClick={() => updateActivePhotoIndex(null)} />
     {!isFirst && (
       <i
-        className="mp-chevron-left"
+        className="mp-chevron-left z-4"
         role="button"
         aria-hidden="true"
         onClick={() => updateActivePhotoIndex(index - 1)}
       />
     )}
-    <div className="mp-gallery-lightbox-content">
-      <div className="mp-gallery-header">
-        <img src={image.user.profile_image.medium} alt={image.user.name} />
-        <p>{image.user.name}</p>
-      </div>
+    <div className="mp-gallery-lightbox-content z-4">
+      <LightBoxHeader image={image} />
       <img className="mp-gallery-lightbox-image" src={image.urls.regular} alt={image.alt_description} />
     </div>
     {!isLast && (
-    <i
-      className="mp-chevron-right"
-      role="button"
-      aria-hidden="true"
-      onClick={() => updateActivePhotoIndex(index + 1)}
-    />
+      <i
+        className="mp-chevron-right z-4"
+        role="button"
+        aria-hidden="true"
+        onClick={() => updateActivePhotoIndex(index + 1)}
+      />
     )}
     <i
       className="mp-close"

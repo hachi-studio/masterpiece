@@ -1,14 +1,21 @@
 .mp-gallery-lightbox {
     position: fixed;
-    z-index: 10;
+    z-index: 2;
     background-color: rgba(0, 0, 0, 0.75);
     width: 100vw;
     height: 100vh;
-    top:0;
+    top: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    .mp-gallery-lightbox-close-area {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
     .mp-gallery-lightbox-content {
         margin: 0 auto;
         height: 80vh;
@@ -17,6 +24,7 @@
             height: 80vh;
             max-width: 90vw;
             object-fit: cover;
+            border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
         }
     }
 
@@ -24,15 +32,26 @@
         background-color: var(--bg-color);
         padding: 0.5em;
         display: flex;
+        border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+        a {
+            text-decoration: none;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
         p {
             color: var(--base-font-color);
-            margin: 0.75em;
+            margin: 0.5em;
             font-size: 12px;
+            &.mp-username {
+                font-size: 10px;
+                font-weight: bold;
+            }
         }
-        img{
+        img {
             border-radius: 50%;
-            max-width: 32px;
-            max-height: 32px;
+            max-width: 2.5em;
+            max-height: 2.5em;
         }
     }
 }
@@ -43,18 +62,22 @@
     box-sizing: border-box;
     position: relative;
     display: block;
-    transform: scale(var(--ggs,1));
+    transform: scale(var(--ggs, 1));
     width: 22px;
     height: 22px;
     border: 2px solid transparent;
     border-radius: 100px;
     @include md {
-        margin-left:2em;
+        margin-left: 2em;
         width: 32px;
         height: 32px;
     }
-   }
-   
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
 .mp-chevron-left::after {
     content: "";
     display: block;
@@ -71,7 +94,7 @@
         width: 20px;
         height: 20px;
     }
-} 
+}
 
 .mp-chevron-right {
     color: var(--low-contrast-color);
@@ -79,18 +102,22 @@
     box-sizing: border-box;
     position: relative;
     display: block;
-    transform: scale(var(--ggs,1));
+    transform: scale(var(--ggs, 1));
     width: 22px;
     height: 22px;
     border: 2px solid transparent;
     border-radius: 100px;
     @include md {
-        margin-right:2em;
+        margin-right: 2em;
         width: 32px;
         height: 32px;
     }
-   }
-   
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
 .mp-chevron-right::after {
     content: "";
     display: block;
@@ -107,30 +134,34 @@
         width: 20px;
         height: 20px;
     }
-} 
+}
 
 .mp-close {
     color: var(--low-contrast-color);
     position: fixed;
-    top:0.5em;
-    right:0.5em;
+    top: 0.5em;
+    right: 0.5em;
     box-sizing: border-box;
     display: block;
-    transform: scale(var(--ggs,1));
+    transform: scale(var(--ggs, 1));
     width: 22px;
     height: 22px;
     border: 2px solid transparent;
     border-radius: 40px;
     @include md {
-        top:2em;
-        right:2em;
+        top: 2em;
+        right: 2em;
         width: 32px;
         height: 32px;
     }
-   }
-   
-   .mp-close::after,
-   .mp-close::before {
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.mp-close::after,
+.mp-close::before {
     content: "";
     display: block;
     box-sizing: border-box;
@@ -145,8 +176,42 @@
     @include md {
         width: 26px;
     }
-   }
-   
-   .mp-close::after {
-    transform: rotate(-45deg)
-   } 
+}
+
+.mp-close::after {
+    transform: rotate(-45deg);
+}
+
+.mp-gallery-header-link {
+    display: flex;
+    margin: 0 0.5em 0.5em auto;
+    align-items: center;
+}
+.mp-arrow-top-right {
+    color: var(--base-font-color);
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid;
+    transform: scale(var(--ggs, 1));
+    border-right: 2px solid;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.mp-arrow-top-right::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background: currentColor;
+    transform: rotate(-45deg);
+    top: 3px;
+    right: -3px;
+}

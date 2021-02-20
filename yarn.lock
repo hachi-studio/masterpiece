@@ -5481,10 +5481,10 @@ graceful-fs@^4.2.3:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.6.tgz#ff040b2b0853b23c3d31027523706f1885d76bee"
   integrity sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ==
 
-grailcss@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/grailcss/-/grailcss-1.0.6.tgz#8ef3e2769e6eb104aa0cbbed7ea646ad72f8a65a"
-  integrity sha512-Ywxp6k3s43y9rRJY8SazPwydSNEBRVeJjyRdGLCR0Hoyo36KkeRmq2E04bPS79pJTc4TuTGLXxa0R9vsRf5KMw==
+grailcss@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/grailcss/-/grailcss-1.0.7.tgz#97e55fa1efd9842aa51afa9f239ed293dd532097"
+  integrity sha512-+CM1/PpHU5X1KoCoCvZLyWj2gv3oDIXVQoXY1LvFP08fSEKHtwNq8aYMhUHDujxQhKETBeYvcLmdQT7BxTtz5w==
   dependencies:
     node-sass "^5.0.0"
 

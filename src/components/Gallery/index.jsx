@@ -39,7 +39,6 @@ const Gallery = () => {
       .finally(() => {
         // We have finished fetching images for now, lets set the loader to false
         setLoading(false);
-        console.log(unsplashImages);
       });
   };
 
@@ -69,12 +68,12 @@ const Gallery = () => {
         {unsplashImages.map((image, i) => (
           <div key={image.id} role="button" aria-hidden="true" onClick={() => setActivePhotoIndex(i)}>
             <GalleryImage
-              url={image.urls.regular}
-              alt={image.alt_description}
+              image={image}
             />
           </div>
         ))}
       </div>
+
       {activePhotoIndex !== null && (
         <LightBox
           isFirst={activePhotoIndex === 0}
