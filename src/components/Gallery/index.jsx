@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import GalleryImage from '../GalleryImage';
+import LightBox from '../LightBox';
 
 const Gallery = () => {
   // State holding the bool value of out loader
@@ -11,6 +12,8 @@ const Gallery = () => {
   // State holding the page number we want to fetch
   const [unsplashPage, setUpsplashPage] = useState(1);
 
+  // Active photo index for lightbox, null will hide the box
+  const [activePhotoIndex, setActivePhotoIndex] = useState(null);
   // Function fetches images from unsplash API
 
   const fetchUnsplashImages = () => {
@@ -45,6 +48,13 @@ const Gallery = () => {
     fetchUnsplashImages();
   }, []);
 
+  // Function passed to the lightbox component to update the active
+  // photo index which will be the active photo in the modal
+
+  const updateActivePhotoIndex = (i) => {
+    setActivePhotoIndex(i);
+  };
+
   // Once we scroll to the bottom run the fetchUnsplashImages function
   window.onscroll = () => {
     if (window.innerHeight
@@ -56,14 +66,24 @@ const Gallery = () => {
   return (
     <>
       <div className="mp-gallery w">
-        {unsplashImages.map((image) => (
-          <GalleryImage
-            key={image.id}
-            url={image.urls.regular}
-            alt={image.alt_description}
-          />
+        {unsplashImages.map((image, i) => (
+          <div key={image.id} role="button" aria-hidden="true" onClick={() => setActivePhotoIndex(i)}>
+            <GalleryImage
+              url={image.urls.regular}
+              alt={image.alt_description}
+            />
+          </div>
         ))}
       </div>
+      {activePhotoIndex !== null && (
+        <LightBox
+          isFirst={activePhotoIndex === 0}
+          isLast={activePhotoIndex === unsplashImages.length - 1}
+          index={activePhotoIndex}
+          image={unsplashImages[activePhotoIndex]}
+          updateActivePhotoIndex={updateActivePhotoIndex}
+        />
+      )}
       {loading ? <div key="1" className="mp-loader">Loading...</div> : null}
     </>
   );
