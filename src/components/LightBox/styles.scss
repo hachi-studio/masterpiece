@@ -19,10 +19,10 @@
     .mp-gallery-lightbox-content {
         margin: 0 auto;
         height: 80vh;
-        max-width: 90vw;
+        max-width: 82vw;
         .mp-gallery-lightbox-image {
             height: 80vh;
-            max-width: 90vw;
+            max-width: 82vw;
             object-fit: cover;
             border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
         }
@@ -58,7 +58,7 @@
 
 .mp-chevron-left {
     color: var(--low-contrast-color);
-    margin-left: 0.5em;
+    margin-left: 0.2em;
     box-sizing: border-box;
     position: relative;
     display: block;
@@ -76,6 +76,13 @@
     &:hover {
         opacity: 0.8;
     }
+    &.mp-chevron-disabled {
+        color: var(--high-contrast-color);
+        cursor: not-allowed;
+        &:hover {
+            opacity: 1;
+        }
+    }
 }
 
 .mp-chevron-left::after {
@@ -83,22 +90,22 @@
     display: block;
     box-sizing: border-box;
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 18px;
+    height: 18px;
     border-bottom: 2px solid;
     border-left: 2px solid;
     transform: rotate(45deg);
     left: 6px;
     top: 4px;
     @include md {
-        width: 20px;
-        height: 20px;
+        width: 28px;
+        height: 28px;
     }
 }
 
 .mp-chevron-right {
     color: var(--low-contrast-color);
-    margin-right: 0.5em;
+    margin-right: 0.2em;
     box-sizing: border-box;
     position: relative;
     display: block;
@@ -116,6 +123,9 @@
     &:hover {
         opacity: 0.8;
     }
+    &.mp-chevron-disabled {
+        color: var(--high-contrast-color);
+    }
 }
 
 .mp-chevron-right::after {
@@ -123,16 +133,16 @@
     display: block;
     box-sizing: border-box;
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 18px;
+    height: 18px;
     border-bottom: 2px solid;
     border-right: 2px solid;
     transform: rotate(-45deg);
     right: 6px;
     top: 4px;
     @include md {
-        width: 20px;
-        height: 20px;
+        width: 28px;
+        height: 28px;
     }
 }
 
@@ -166,7 +176,7 @@
     display: block;
     box-sizing: border-box;
     position: absolute;
-    width: 16px;
+    width: 18px;
     height: 2px;
     background: currentColor;
     transform: rotate(45deg);

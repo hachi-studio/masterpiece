@@ -11,24 +11,32 @@ const lightbox = ({
 }) => (
   <div className="mp-gallery-lightbox">
     <div className="mp-gallery-lightbox-close-area" role="button" aria-hidden="true" onClick={() => updateActivePhotoIndex(null)} />
-    {!isFirst && (
+    {!isFirst ? (
       <i
         className="mp-chevron-left z-4"
         role="button"
         aria-hidden="true"
         onClick={() => updateActivePhotoIndex(index - 1)}
       />
+    ) : (
+      <i
+        className="mp-chevron-left z-4 mp-chevron-disabled"
+      />
     )}
     <div className="mp-gallery-lightbox-content z-4">
       <LightBoxHeader image={image} />
       <img className="mp-gallery-lightbox-image" src={image.urls.regular} alt={image.alt_description} />
     </div>
-    {!isLast && (
+    {!isLast ? (
       <i
         className="mp-chevron-right z-4"
         role="button"
         aria-hidden="true"
         onClick={() => updateActivePhotoIndex(index + 1)}
+      />
+    ) : (
+      <i
+        className="mp-chevron-right z-4 mp-chevron-disabled"
       />
     )}
     <i
