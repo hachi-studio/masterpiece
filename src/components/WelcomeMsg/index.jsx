@@ -14,6 +14,7 @@ const WelcomeMsg = () => {
           <li>Custom infinite scroll</li>
           <li>Custom lightbox popup</li>
           <li>Toggle lightbox images left and right</li>
+          <li>Darkmode (based on system color scheme)</li>
           <li>No 3rd party librarys*</li>
         </ul>
         <p>
