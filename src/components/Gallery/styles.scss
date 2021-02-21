@@ -1,6 +1,11 @@
 .mp-gallery {
     column-gap: 1em;
+    transition: all 1s ease;
     column-count: 1;
+    opacity: 0;
+    &.mp-gallery-fadein {
+        opacity: 1;
+    }
     @include sm {
         column-count: 2;
     }
