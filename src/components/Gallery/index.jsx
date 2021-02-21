@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import GalleryImage from '../GalleryImage';
 import LightBox from '../LightBox';
+import WelcomeMsg from '../WelcomeMsg';
 
 const Gallery = () => {
+  // Fade in effect for the gallery on init
+  const [fadeIn, setFadeIn] = useState(false);
   // State holding the bool value of out loader
   const [loading, setLoading] = useState(false);
 
@@ -33,8 +36,8 @@ const Gallery = () => {
         const newPage = unsplashPage + 1;
         setUpsplashPage(newPage);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        // console.log(err);
       })
       .finally(() => {
         // We have finished fetching images for now, lets set the loader to false
@@ -45,6 +48,8 @@ const Gallery = () => {
   useEffect(() => {
     // Fetch first page of images on mount
     fetchUnsplashImages();
+    // Delay fadein animation briefly
+    setTimeout(() => { setFadeIn(true); }, 200);
   }, []);
 
   // Function passed to the lightbox component to update the active
@@ -64,7 +69,8 @@ const Gallery = () => {
 
   return (
     <>
-      <div className="mp-gallery w">
+      <div className={`mp-gallery w ${fadeIn ? 'mp-gallery-fadein' : ''}`}>
+        <WelcomeMsg />
         {unsplashImages.map((image, i) => (
           <div key={image.id} role="button" aria-hidden="true" onClick={() => setActivePhotoIndex(i)}>
             <GalleryImage
