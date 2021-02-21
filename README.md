@@ -1,6 +1,6 @@
 # Masterpiece
-Gallery containing phography pulled from Unsplash
-[Live](http://masterpiece-lac.vercel.app)
+- Gallery containing phography pulled from Unsplash.
+- View live version [here](http://masterpiece-lac.vercel.app).
 
 ## Quick start
 
