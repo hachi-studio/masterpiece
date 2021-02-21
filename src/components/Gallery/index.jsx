@@ -51,6 +51,14 @@ const Gallery = () => {
     // Delay fadein animation briefly
     setTimeout(() => { setFadeIn(true); }, 200);
   }, []);
+  // Add class to body to stop scrolling when lighbox open
+  useEffect(() => {
+    if (activePhotoIndex === null) {
+      document.body.classList.remove('mp-overflow-hidden');
+    } else {
+      document.body.classList.add('mp-overflow-hidden');
+    }
+  }, [activePhotoIndex]);
 
   // Function passed to the lightbox component to update the active
   // photo index which will be the active photo in the modal
