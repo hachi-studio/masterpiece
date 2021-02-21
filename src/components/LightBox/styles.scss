@@ -18,10 +18,11 @@
     }
     .mp-gallery-lightbox-content {
         margin: 0 auto;
-        height: 80vh;
-        max-width: 82vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         .mp-gallery-lightbox-image {
-            height: 80vh;
+            max-height: 80vh;
             max-width: 82vw;
             object-fit: cover;
             border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
@@ -63,14 +64,13 @@
     position: relative;
     display: block;
     transform: scale(var(--ggs, 1));
-    width: 22px;
-    height: 22px;
+    width: 2em;
+    height: 4em;
     border: 2px solid transparent;
     border-radius: 100px;
     @include md {
+        width: 4em;
         margin-left: 2em;
-        width: 32px;
-        height: 32px;
     }
     cursor: pointer;
     &:hover {
@@ -94,9 +94,9 @@
     height: 18px;
     border-bottom: 2px solid;
     border-left: 2px solid;
-    transform: rotate(45deg);
+    transform: translateY(-50%) rotate(45deg);
     left: 6px;
-    top: 4px;
+    top: 50%;
     @include md {
         width: 28px;
         height: 28px;
@@ -110,14 +110,13 @@
     position: relative;
     display: block;
     transform: scale(var(--ggs, 1));
-    width: 22px;
-    height: 22px;
+    width: 2em;
+    height: 4em;
     border: 2px solid transparent;
     border-radius: 100px;
     @include md {
+        width: 4em;
         margin-right: 2em;
-        width: 32px;
-        height: 32px;
     }
     cursor: pointer;
     &:hover {
@@ -125,6 +124,10 @@
     }
     &.mp-chevron-disabled {
         color: var(--high-contrast-color);
+        cursor: not-allowed;
+        &:hover {
+            opacity: 1;
+        }
     }
 }
 
@@ -137,9 +140,9 @@
     height: 18px;
     border-bottom: 2px solid;
     border-right: 2px solid;
-    transform: rotate(-45deg);
+    transform: translateY(-50%) rotate(-45deg);
     right: 6px;
-    top: 4px;
+    top: 50%;
     @include md {
         width: 28px;
         height: 28px;
